@@ -31,55 +31,26 @@
     
   </div>
 </nav>
-<form action="/save" method="post" class="p-4">
+<form action="/update/{{$student->id}}" method="post" class="p-4">
   @csrf
-    <h1>Student Details</h1>
+    <h1>Edit Student Details</h1>
+    <!-- {{$student}} -->
     <div class="form-group">
         <label for="exampleInputEmail1">Name:</label>
-        <input type="text" class="form-control" name="name" placeholder="Enter name">
+        <input type="text" class="form-control" name="name" value="{{$student->name}}" placeholder="Enter name">
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Email:</label>
-        <input type="email" class="form-control" name="email" placeholder="Enter email">
+        <input type="email" class="form-control" name="email" value="{{$student->email}}" placeholder="Enter email">
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Contact:</label>
-        <input type="text" class="form-control" name="contact" placeholder="Enter contact no.">
+        <input type="text" class="form-control" name="contact" value="{{$student->contact}}" placeholder="Enter contact no.">
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary">Update</button>
 </form>
 
-<div class="card">
-  <div class="card-body">
-    <h1>Students</h1>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Contact</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php $i=0; ?>
-        @foreach($students as $data)
-        <tr>
-          <td>{{++$i}}</td>
-          <td>{{$data->name}}</td>
-          <td>{{$data->email}}</td>
-          <td>{{$data->contact}}</td>
-          <td>
-            <a href="/edit/{{$data->id}}" class="btn btn-primary">Edit</a>
-            <a href="/delete/{{$data->id}}" class="btn btn-danger">Delete</a>
-          </td>
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div>
-</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

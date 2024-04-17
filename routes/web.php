@@ -26,3 +26,6 @@ Route::get('/',[FrontendController::class, 'index']);
 Route::get('/about',[FrontendController::class, 'about']);
 Route::get('/contact',[FrontendController::class, 'contact']);
 Route::post('/save',[StudentController::class, 'store']);
+Route::get('/delete/{id}',[StudentController::class, 'destroy']);
+Route::get('/edit/{id}',[StudentController::class, 'edit']);
+Route::post('/update/{id}',[StudentController::class, 'update']);
