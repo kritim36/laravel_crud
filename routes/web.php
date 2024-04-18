@@ -29,3 +29,7 @@ Route::post('/save',[StudentController::class, 'store']);
 Route::get('/delete/{id}',[StudentController::class, 'destroy']);
 Route::get('/edit/{id}',[StudentController::class, 'edit']);
 Route::post('/update/{id}',[StudentController::class, 'update']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
